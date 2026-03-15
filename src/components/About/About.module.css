@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap');
+
+.section {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 160px 48px 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 56px;
+}
+
+/* ── Heading ── */
+.heading {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: clamp(56px, 8vw, 110px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+/* ── Two-column body ── */
+.body {
+  display: flex;
+  align-items: stretch;
+  gap: 80px;
+}
+
+/* ── Left: text ── */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.para {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ── Right: neural net canvas ── */
+.right {
+  flex: 0 0 420px;
+  align-self: stretch;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 24px;
+  }
+
+  .body {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .right {
+    flex: unset;
+    width: 100%;
+    min-height: 300px;
+  }
+}

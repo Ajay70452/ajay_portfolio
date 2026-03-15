@@ -1,0 +1,128 @@
+.section {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 100px 48px;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ── Bento grid ── */
+.bento {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 14px;
+}
+
+/* Box placements */
+.languages     { grid-column: 1;        grid-row: 1; }
+.frameworks    { grid-column: 2;        grid-row: 1; }
+.aimodels      { grid-column: 3 / span 2; grid-row: 1 / span 2; }
+.databases     { grid-column: 1;        grid-row: 2; }
+.infrastructure{ grid-column: 2;        grid-row: 2; }
+.techniques    { grid-column: 1 / span 2; grid-row: 3; }
+.systemdesign  { grid-column: 3 / span 2; grid-row: 3; }
+
+/* ── Box base ── */
+.box {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.25s;
+}
+
+.box:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Feature box (AI/LLM — big) */
+.feature {
+  background: #111111;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.feature:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Box label ── */
+.boxLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── Pills ── */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.pill:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px;
+  }
+
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aimodels      { grid-column: 1 / span 2; grid-row: 3; }
+  .databases     { grid-column: 1;          grid-row: 1; }
+  .infrastructure{ grid-column: 2;          grid-row: 1; }
+  .languages     { grid-column: 1;          grid-row: 2; }
+  .frameworks    { grid-column: 2;          grid-row: 2; }
+  .techniques    { grid-column: 1 / span 2; grid-row: 4; }
+  .systemdesign  { grid-column: 1 / span 2; grid-row: 5; }
+}

@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap');
+
+.section {
+  background: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+  padding: 100px 48px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* ── Left ── */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: clamp(48px, 7vw, 100px);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 64px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.socialLink {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  transition: color 0.2s;
+}
+
+.socialLink:hover {
+  color: #fff;
+}
+
+/* ── Right: form ── */
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.field {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.field:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 24px 0;
+  font-family: inherit;
+  resize: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.textarea {
+  padding: 24px 0;
+  line-height: 1.6;
+}
+
+/* ── Send button ── */
+.btn {
+  margin-top: 24px;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: #e5e5e5;
+  color: #000;
+}
+
+.arrow {
+  font-size: 1.3rem;
+  transition: transform 0.2s;
+}
+
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .section {
+    flex-direction: column;
+    padding: 80px 24px;
+    gap: 56px;
+    align-items: flex-start;
+  }
+
+  .left,
+  .form {
+    width: 100%;
+  }
+}

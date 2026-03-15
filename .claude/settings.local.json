@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "WebSearch",
+      "WebFetch(domain:klim.co.nz)",
+      "WebFetch(domain:cdn.simpleicons.org)"
+    ]
+  }
+}
