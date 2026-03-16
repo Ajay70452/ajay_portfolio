@@ -13,6 +13,9 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
 }
 
 .label {
@@ -52,6 +55,9 @@
   display: flex;
   align-items: flex-start;
   gap: 24px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
 }
 
 .dot {
@@ -145,6 +151,17 @@
   height: 18px;
   color: rgba(255, 255, 255, 0.5);
   margin-top: 2px;
+}
+
+/* ── Scroll reveal ── */
+.headerVisible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.rowVisible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* ── Responsive ── */

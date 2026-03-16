@@ -108,6 +108,27 @@
   background: rgba(255, 255, 255, 0.07);
 }
 
+/* ── Scroll reveal ── */
+.header {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.header.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.box {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1), border-color 0.25s;
+}
+.box.boxVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .section {

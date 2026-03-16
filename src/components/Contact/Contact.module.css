@@ -132,6 +132,27 @@
   transform: translateX(4px);
 }
 
+/* ── Scroll reveal ── */
+.left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.left.leftVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.form {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.8s cubic-bezier(0.22,1,0.36,1) 0.15s;
+}
+.form.formVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .section {

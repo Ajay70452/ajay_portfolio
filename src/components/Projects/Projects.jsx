@@ -1,5 +1,6 @@
 import { projects } from '../../data/content'
 import styles from './Projects.module.css'
+import { useInView } from '../../hooks/useInView'
 
 function GlobeIcon() {
   return (
@@ -18,67 +19,75 @@ function GithubIcon() {
   )
 }
 
-// placeholder visuals per project — replaced with real screenshots later
 const placeholders = [
   { bg: 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)', label: 'AI Inbox Manager' },
   { bg: 'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)', label: 'Reelr' },
   { bg: 'linear-gradient(135deg, #0d0d0d, #1a1a1a, #111827)', label: 'Local RAG Agent' },
 ]
 
+function ProjectCard({ project, index }) {
+  const [ref, visible] = useInView()
+  return (
+    <div
+      ref={ref}
+      className={`${styles.project} ${visible ? styles.projectVisible : ''}`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
+    >
+      <div className={styles.preview} style={{ background: placeholders[index].bg }}>
+        <span className={styles.previewLabel}>{placeholders[index].label}</span>
+      </div>
+
+      <div className={styles.info}>
+        <div className={styles.infoTop}>
+          <h3 className={styles.name}>{project.name}</h3>
+          <p className={styles.tagline}>{project.tagline}</p>
+        </div>
+
+        <p className={styles.desc}>{project.description}</p>
+
+        <div className={styles.stack}>
+          {project.stack.map(s => (
+            <span key={s} className={styles.badge}>{s}</span>
+          ))}
+        </div>
+
+        <div className={styles.links}>
+          {project.live && (
+            <a href={project.live} target="_blank" rel="noreferrer" className={styles.link}>
+              <GlobeIcon />
+            </a>
+          )}
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noreferrer" className={styles.link}>
+              <GithubIcon />
+            </a>
+          )}
+          {!project.live && !project.github && (
+            <span className={styles.private}>Private project</span>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Projects() {
+  const [headerRef, headerVisible] = useInView()
+
   return (
     <section id="works" className={styles.section}>
 
-      <div className={styles.header}>
+      <div
+        ref={headerRef}
+        className={`${styles.header} ${headerVisible ? styles.headerVisible : ''}`}
+      >
         <span className={styles.label}>Projects</span>
         <h2 className={styles.heading}>Things I've Built</h2>
       </div>
 
       <div className={styles.list}>
         {projects.map((project, i) => (
-          <div key={project.name} className={styles.project}>
-
-            {/* Screenshot / preview */}
-            <div
-              className={styles.preview}
-              style={{ background: placeholders[i].bg }}
-            >
-              <span className={styles.previewLabel}>{placeholders[i].label}</span>
-            </div>
-
-            {/* Info */}
-            <div className={styles.info}>
-              <div className={styles.infoTop}>
-                <h3 className={styles.name}>{project.name}</h3>
-                <p className={styles.tagline}>{project.tagline}</p>
-              </div>
-
-              <p className={styles.desc}>{project.description}</p>
-
-              <div className={styles.stack}>
-                {project.stack.map(s => (
-                  <span key={s} className={styles.badge}>{s}</span>
-                ))}
-              </div>
-
-              <div className={styles.links}>
-                {project.live && (
-                  <a href={project.live} target="_blank" rel="noreferrer" className={styles.link}>
-                    <GlobeIcon />
-                  </a>
-                )}
-                {project.github && (
-                  <a href={project.github} target="_blank" rel="noreferrer" className={styles.link}>
-                    <GithubIcon />
-                  </a>
-                )}
-                {!project.live && !project.github && (
-                  <span className={styles.private}>Private project</span>
-                )}
-              </div>
-            </div>
-
-          </div>
+          <ProjectCard key={project.name} project={project} index={i} />
         ))}
       </div>
 

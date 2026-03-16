@@ -35,8 +35,8 @@ export const experience = [
     ],
   },
   {
-    company: '10 FingerSolutions Pvt Ltd',
-    role: 'Python Developer',
+    company: '10FS',
+    role: 'Backend Engineer',
     period: 'Feb 2024 — Feb 2025',
     desc: "Worked on data systems and automation tools used to analyze marketing campaigns and operational data. My role focused on building Python tools that helped teams access insights faster and make better decisions from large datasets.",
     bullets: [

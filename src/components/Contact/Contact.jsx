@@ -1,4 +1,5 @@
 import styles from './Contact.module.css'
+import { useInView } from '../../hooks/useInView'
 
 const socials = [
   { label: 'E-Mail',   href: 'mailto:ajayraval49ar@gmail.com' },
@@ -7,11 +8,16 @@ const socials = [
 ]
 
 export default function Contact() {
+  const [leftRef, leftVisible] = useInView()
+  const [rightRef, rightVisible] = useInView()
+
   return (
     <section id="contact" className={styles.section}>
 
-      {/* ── Left ── */}
-      <div className={styles.left}>
+      <div
+        ref={leftRef}
+        className={`${styles.left} ${leftVisible ? styles.leftVisible : ''}`}
+      >
         <span className={styles.eyebrow}>Contact</span>
         <h2 className={styles.heading}>LET'S TALK</h2>
 
@@ -24,8 +30,11 @@ export default function Contact() {
         </nav>
       </div>
 
-      {/* ── Right: form ── */}
-      <form className={styles.form} onSubmit={e => e.preventDefault()}>
+      <form
+        ref={rightRef}
+        className={`${styles.form} ${rightVisible ? styles.formVisible : ''}`}
+        onSubmit={e => e.preventDefault()}
+      >
         <div className={styles.field}>
           <input type="text" placeholder="Your Name" className={styles.input} required />
         </div>
