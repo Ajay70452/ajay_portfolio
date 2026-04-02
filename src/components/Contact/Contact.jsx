@@ -2,9 +2,10 @@ import styles from './Contact.module.css'
 import { useInView } from '../../hooks/useInView'
 
 const socials = [
-  { label: 'E-Mail',   href: 'mailto:ajayraval49ar@gmail.com' },
-  { label: 'GitHub',   href: 'https://github.com/Ajay70452' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ajay-raval-85a8551b7/' },
+  { label: 'E-Mail',    href: 'mailto:ajayraval49ar@gmail.com' },
+  { label: 'GitHub',    href: 'https://github.com/Ajay70452' },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/ajay-raval-85a8551b7/' },
+  { label: 'WhatsApp',  href: 'https://wa.me/918469131771' },
 ]
 
 export default function Contact() {
