@@ -20,6 +20,8 @@ function GithubIcon() {
 }
 
 const placeholders = [
+  { bg: 'linear-gradient(135deg, #0a2618, #0d3320, #1a5c38)', label: 'Google Ads AI Automation' },
+  { bg: 'linear-gradient(135deg, #1a0a0a, #3d1010, #6b1f1f)', label: 'Obsessive.AI' },
   { bg: 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)', label: 'AI Inbox Manager' },
   { bg: 'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)', label: 'Reelr' },
   { bg: 'linear-gradient(135deg, #0d0d0d, #1a1a1a, #111827)', label: 'Local RAG Agent' },
@@ -41,6 +43,9 @@ function ProjectCard({ project, index }) {
         <div className={styles.infoTop}>
           <h3 className={styles.name}>{project.name}</h3>
           <p className={styles.tagline}>{project.tagline}</p>
+          {project.status && (
+            <span className={styles.status}>🚧 {project.status}</span>
+          )}
         </div>
 
         <p className={styles.desc}>{project.description}</p>

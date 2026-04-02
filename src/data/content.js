@@ -60,6 +60,23 @@ export const experience = [
 
 export const projects = [
   {
+    name: 'Google Ads AI Automation System (Ongoing)',
+    tagline: 'MCP-Based Multi-Agent Campaign Engine',
+    stack: ['FastAPI', 'Python', 'PostgreSQL', 'Claude API', 'MCP Architecture', 'Google Ads API', 'AWS ECS', 'Docker'],
+    description: "An agentic system that autonomously manages Google Ads campaigns across multiple client accounts using an MCP server architecture with Claude as the reasoning engine. Handles bid adjustments, budget pacing, keyword optimization, and performance reporting — replacing 15+ hours of manual weekly work with zero human intervention.",
+    live: null,
+    github: null,
+  },
+  {
+    name: 'Obsessive.AI',
+    tagline: 'Agentic Email Outreach Platform',
+    stack: ['FastAPI', 'Python', 'LangGraph', 'PostgreSQL', 'OpenAI API', 'Gmail API', 'Chrome Extension', 'AWS'],
+    description: "An autonomous outreach agent that researches leads, crafts hyper-personalized cold emails, and handles back-and-forth communication — end to end. Feed it a lead list, it does the rest. Built for founders and sales teams who are done with generic email blasts and want conversations that actually convert.",
+    status: 'In Development',
+    live: null,
+    github: null,
+  },
+  {
     name: 'AI Inbox Manager',
     tagline: 'AI Email Automation Platform',
     stack: ['FastAPI', 'Python', 'PostgreSQL', 'Redis', 'Celery', 'Next.js', 'React', 'Chrome Extension', 'OpenAI API', 'AWS'],
