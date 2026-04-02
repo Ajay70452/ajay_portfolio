@@ -59,6 +59,26 @@
   color: #fff;
 }
 
+/* ── Direct contact ── */
+.directContact {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.directLink {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.directLink:hover {
+  color: #fff;
+}
+
 /* ── Right: form ── */
 .form {
   flex: 1;

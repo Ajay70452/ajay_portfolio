@@ -1,4 +1,4 @@
-import { nav } from '../../data/content'
+ import { nav } from '../../data/content'
 import styles from './Header.module.css'
 
 export default function Header() {

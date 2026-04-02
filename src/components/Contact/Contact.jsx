@@ -28,6 +28,11 @@ export default function Contact() {
             </a>
           ))}
         </nav>
+
+        <div className={styles.directContact}>
+          <a href="tel:+918469131771" className={styles.directLink}>+91 8469131771</a>
+          <a href="mailto:ajayraval49ar@gmail.com" className={styles.directLink}>ajayraval49ar@gmail.com</a>
+        </div>
       </div>
 
       <form
