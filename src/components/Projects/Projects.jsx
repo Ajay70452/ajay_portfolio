@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { projects } from '../../data/content'
 import styles from './Projects.module.css'
 import { useInView } from '../../hooks/useInView'
@@ -27,6 +28,40 @@ const placeholders = [
   { bg: 'linear-gradient(135deg, #0d0d0d, #1a1a1a, #111827)', label: 'Local RAG Agent' },
 ]
 
+function ProjectPreview({ project, index }) {
+  const [current, setCurrent] = useState(0)
+  const images = project.images
+
+  if (images && images.length > 0) {
+    return (
+      <div className={styles.preview} style={{ background: '#111', position: 'relative' }}>
+        <img
+          src={images[current]}
+          alt={`${project.name} screenshot ${current + 1}`}
+          className={styles.previewImg}
+        />
+        {images.length > 1 && (
+          <>
+            <button className={`${styles.slideBtn} ${styles.slidePrev}`} onClick={() => setCurrent(i => (i - 1 + images.length) % images.length)}>&#8249;</button>
+            <button className={`${styles.slideBtn} ${styles.slideNext}`} onClick={() => setCurrent(i => (i + 1) % images.length)}>&#8250;</button>
+            <div className={styles.dots}>
+              {images.map((_, i) => (
+                <span key={i} className={`${styles.dot} ${i === current ? styles.dotActive : ''}`} onClick={() => setCurrent(i)} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    )
+  }
+
+  return (
+    <div className={styles.preview} style={{ background: placeholders[index].bg }}>
+      <span className={styles.previewLabel}>{placeholders[index].label}</span>
+    </div>
+  )
+}
+
 function ProjectCard({ project, index }) {
   const [ref, visible] = useInView()
   return (
@@ -35,9 +70,7 @@ function ProjectCard({ project, index }) {
       className={`${styles.project} ${visible ? styles.projectVisible : ''}`}
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
-      <div className={styles.preview} style={{ background: placeholders[index].bg }}>
-        <span className={styles.previewLabel}>{placeholders[index].label}</span>
-      </div>
+      <ProjectPreview project={project} index={index} />
 
       <div className={styles.info}>
         <div className={styles.infoTop}>

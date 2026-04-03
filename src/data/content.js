@@ -81,6 +81,7 @@ export const projects = [
     tagline: 'AI Email Automation Platform',
     stack: ['FastAPI', 'Python', 'PostgreSQL', 'Redis', 'Celery', 'Next.js', 'React', 'Chrome Extension', 'OpenAI API', 'AWS'],
     description: "An AI-powered email automation system for Gmail and Outlook that analyzes incoming emails, generates summaries, detects priorities, extracts tasks, and drafts replies. Built a Chrome extension that surfaces AI insights directly inside the Gmail interface, reducing the time teams spend processing email.",
+    images: ['/imgs/inbox-manager1.png', '/imgs/inbox-manager2.png'],
     live: null,
     github: null,
   },

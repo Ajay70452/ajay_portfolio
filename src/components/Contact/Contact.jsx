@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './Contact.module.css'
 import { useInView } from '../../hooks/useInView'
 
@@ -11,6 +12,35 @@ const socials = [
 export default function Contact() {
   const [leftRef, leftVisible] = useInView()
   const [rightRef, rightVisible] = useInView()
+  const [status, setStatus] = useState('idle')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+
+    const form = e.target
+    const data = new FormData(form)
+
+    try {
+      const res = await fetch('https://formspree.io/f/ajayraval49ar@gmail.com', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+
+      if (res.ok) {
+        setStatus('sent')
+        form.reset()
+        setTimeout(() => setStatus('idle'), 4000)
+      } else {
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 4000)
+      }
+    } catch {
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 4000)
+    }
+  }
 
   return (
     <section id="contact" className={styles.section}>
@@ -39,20 +69,27 @@ export default function Contact() {
       <form
         ref={rightRef}
         className={`${styles.form} ${rightVisible ? styles.formVisible : ''}`}
-        onSubmit={e => e.preventDefault()}
+        onSubmit={handleSubmit}
       >
         <div className={styles.field}>
-          <input type="text" placeholder="Your Name" className={styles.input} required />
+          <input type="text" name="name" placeholder="Your Name" className={styles.input} required />
         </div>
         <div className={styles.field}>
-          <input type="email" placeholder="Your Email" className={styles.input} required />
+          <input type="email" name="email" placeholder="Your Email" className={styles.input} required />
         </div>
         <div className={styles.field}>
-          <textarea placeholder="Your Message" className={styles.textarea} rows={5} required />
+          <textarea name="message" placeholder="Your Message" className={styles.textarea} rows={5} required />
         </div>
-        <button type="submit" className={styles.btn}>
-          <span>Send Message</span>
-          <span className={styles.arrow}>→</span>
+        <button type="submit" className={styles.btn} disabled={status === 'sending'}>
+          <span>
+            {status === 'idle' && 'Send Message'}
+            {status === 'sending' && 'Sending...'}
+            {status === 'sent' && 'Message Sent!'}
+            {status === 'error' && 'Failed — Try Again'}
+          </span>
+          <span className={styles.arrow}>
+            {status === 'sent' ? '\u2713' : '\u2192'}
+          </span>
         </button>
       </form>
 

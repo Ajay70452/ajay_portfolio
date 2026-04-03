@@ -89,6 +89,22 @@
 
 .field {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+
+.field::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.field:focus-within::after {
+  width: 100%;
 }
 
 .field:first-child {
@@ -106,11 +122,18 @@
   padding: 24px 0;
   font-family: inherit;
   resize: none;
+  transition: color 0.2s;
 }
 
 .input::placeholder,
 .textarea::placeholder {
   color: rgba(255, 255, 255, 0.35);
+  transition: color 0.3s;
+}
+
+.input:focus::placeholder,
+.textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.15);
 }
 
 .textarea {
@@ -138,9 +161,14 @@
   transition: background 0.2s, color 0.2s;
 }
 
-.btn:hover {
+.btn:hover:not(:disabled) {
   background: #e5e5e5;
   color: #000;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .arrow {
