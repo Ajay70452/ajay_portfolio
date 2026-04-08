@@ -36,7 +36,7 @@ export const experience = [
   },
   {
     company: '10FS',
-    role: 'Backend Engineer',
+    role: 'AI Engineer',
     period: 'Feb 2024 — Feb 2025',
     desc: "Worked on data systems and automation tools used to analyze marketing campaigns and operational data. My role focused on building Python tools that helped teams access insights faster and make better decisions from large datasets.",
     bullets: [
@@ -47,7 +47,7 @@ export const experience = [
   },
   {
     company: 'Room Reveal',
-    role: 'Founder',
+    role: 'CTO',
     period: 'Mar 2023 — Jan 2024',
     desc: "Room Reveal was a startup I founded focused on using AI to simplify interior visualization workflows. I led a small team of developers and managed the entire product from early idea to launching and onboarding our first enterprise clients.",
     bullets: [
